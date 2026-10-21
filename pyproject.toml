@@ -1,0 +1,13 @@
+[project]
+name = "pokerassist"
+version = "0.1.0"
+description = "No-Limit Hold'em decision assistant: deterministic engine + LLM explanation layer"
+requires-python = ">=3.11"
+dependencies = ["eval7==0.1.11"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: long-running accuracy checks"]

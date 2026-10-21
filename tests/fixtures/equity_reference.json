@@ -1,0 +1,176 @@
+{
+ "version": 1,
+ "source": "Exact enumeration with treys 0.1.8 (independent of eval7); ties split equally among tied players.",
+ "spots": [
+  {
+   "hero": "AsKd",
+   "villains": [
+    "22+,AJ+,KQ"
+   ],
+   "board": "Ts9s2c",
+   "equity": 0.45034
+  },
+  {
+   "hero": "AsKd",
+   "villains": [
+    "random"
+   ],
+   "board": "Ts9s2c",
+   "equity": 0.54263
+  },
+  {
+   "hero": "7s6s",
+   "villains": [
+    "AA,KK,QQ,AK"
+   ],
+   "board": "8s5d2s",
+   "equity": 0.5926
+  },
+  {
+   "hero": "QhQd",
+   "villains": [
+    "JJ+,AQs+,AKo,T9s"
+   ],
+   "board": "Th9c4d",
+   "equity": 0.55233
+  },
+  {
+   "hero": "AhAd",
+   "villains": [
+    "random"
+   ],
+   "board": "KhQhJh",
+   "equity": 0.88389
+  },
+  {
+   "hero": "5c5d",
+   "villains": [
+    "A2s+,KTs+,QJs,ATo+,22+"
+   ],
+   "board": "Kc8h5s",
+   "equity": 0.92
+  },
+  {
+   "hero": "AsKd",
+   "villains": [
+    "random"
+   ],
+   "board": "Ts9s2c7h",
+   "equity": 0.42418
+  },
+  {
+   "hero": "JdJc",
+   "villains": [
+    "AK,AQ,TT+"
+   ],
+   "board": "Ah7c3d9s",
+   "equity": 0.17095
+  },
+  {
+   "hero": "9h8h",
+   "villains": [
+    "QQ+"
+   ],
+   "board": "7h6c2h",
+   "equity": 0.53939
+  },
+  {
+   "hero": "AcKc",
+   "villains": [
+    "QQ"
+   ],
+   "board": "Qh7c2cJd",
+   "equity": 0.22727
+  },
+  {
+   "hero": "KsQs",
+   "villains": [
+    "AA"
+   ],
+   "board": "Js2d3h4c8d",
+   "equity": 0.0
+  },
+  {
+   "hero": "AsAh",
+   "villains": [
+    "KdKc",
+    "QsQh"
+   ],
+   "board": "2c7d9h",
+   "equity": 0.82946
+  },
+  {
+   "hero": "Th9h",
+   "villains": [
+    "AcKd",
+    "6s6d"
+   ],
+   "board": "8h7c2h",
+   "equity": 0.62569
+  },
+  {
+   "hero": "AsAh",
+   "villains": [
+    "KdKc"
+   ],
+   "board": "",
+   "equity": 0.81255
+  },
+  {
+   "hero": "AsKs",
+   "villains": [
+    "QdQc"
+   ],
+   "board": "",
+   "equity": 0.46214
+  },
+  {
+   "hero": "AsKd",
+   "villains": [
+    "QhQc"
+   ],
+   "board": "",
+   "equity": 0.42835
+  },
+  {
+   "hero": "AhKd",
+   "villains": [
+    "2s2c"
+   ],
+   "board": "",
+   "equity": 0.4696
+  },
+  {
+   "hero": "7h2d",
+   "villains": [
+    "AsAc"
+   ],
+   "board": "",
+   "equity": 0.12578
+  },
+  {
+   "hero": "JsTs",
+   "villains": [
+    "AhKd"
+   ],
+   "board": "",
+   "equity": 0.4118
+  },
+  {
+   "hero": "AsKs",
+   "villains": [
+    "AdQd"
+   ],
+   "board": "",
+   "equity": 0.71277
+  },
+  {
+   "hero": "8s8h",
+   "villains": [
+    "AdKc"
+   ],
+   "board": "",
+   "equity": 0.55569
+  }
+ ]
+}
