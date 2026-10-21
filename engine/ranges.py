@@ -31,6 +31,19 @@ def combo(a: str, b: str) -> Combo:
 ALL_COMBOS: tuple[Combo, ...] = tuple(combo(a, b) for a, b in combinations(DECK, 2))
 
 
+def _grid_class(i: int, j: int) -> str:
+    if i == j:
+        return RANKS[i] * 2
+    if i < j:
+        return RANKS[i] + RANKS[j] + "s"
+    return RANKS[j] + RANKS[i] + "o"
+
+
+# The 169 hand classes in grid order: index = row * 13 + col (see range_to_grid).
+CLASSES: tuple[str, ...] = tuple(_grid_class(i, j) for i in range(13) for j in range(13))
+CLASS_INDEX = {c: i for i, c in enumerate(CLASSES)}
+
+
 def hand_class(c: Combo) -> str:
     """``("As", "Kd")`` -> ``"AKo"``; ``("Ah", "Ad")`` -> ``"AA"``."""
     (r1, s1), (r2, s2) = c

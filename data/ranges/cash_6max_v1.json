@@ -1,0 +1,38 @@
+{
+ "version": 1,
+ "id": "cash_6max_v1",
+ "format": "cash",
+ "seats": ["UTG", "HJ", "CO", "BTN", "SB", "BB"],
+ "stack_bb": 100,
+ "notes": "Approximate solver-style 100BB charts, raise-or-fold opens (no SB limps). Weights are frequencies.",
+ "sizes_bb": {"open": 2.5, "open_sb": 3.0, "3bet_ip": 7.5, "3bet_oop": 10.0, "4bet": 22.0},
+ "rfi": {
+  "UTG": "55+, A2s+, K9s+, Q9s+, J9s+, T9s, 98s, 87s:0.5, 76s:0.5, AJo+, KQo",
+  "HJ": "44+, A2s+, K8s+, Q9s+, J9s+, T8s+, 98s, 87s, 76s, 65s:0.5, ATo+, KJo+, QJo:0.5",
+  "CO": "22+, A2s+, K5s+, Q8s+, J8s+, T8s+, 97s+, 87s, 76s, 65s, 54s, A8o+, A5o:0.5, KTo+, QTo+, JTo",
+  "BTN": "22+, A2s+, K2s+, Q4s+, J6s+, T6s+, 96s+, 85s+, 74s+, 64s+, 53s+, 43s:0.5, A2o+, K8o+, Q9o+, J9o+, T8o+, 98o, 87o:0.5",
+  "SB": "22+, A2s+, K3s+, Q6s+, J7s+, T7s+, 97s+, 86s+, 75s+, 65s, 54s, A4o+, K9o+, QTo+, JTo, T9o:0.5"
+ },
+ "vs_open": [
+  {"hero": ["HJ", "CO"], "openers": ["UTG"], "3bet": "QQ+, AKs, AKo, A5s:0.5, A4s:0.5", "call": "JJ-88, AQs-ATs, KQs, KJs, QJs, JTs, AQo:0.5"},
+  {"hero": ["CO"], "openers": ["HJ"], "3bet": "JJ+, AQs+, AKo, A5s, A4s:0.5, KQs:0.5", "call": "TT-77, AJs-ATs, KQs:0.5, KJs, QJs, JTs, T9s:0.5, AQo:0.5"},
+  {"hero": ["BTN"], "openers": ["UTG"], "3bet": "QQ+, AKs, AKo, A5s, A4s", "call": "JJ-66, AQs-ATs, KQs-KTs, QJs, JTs, T9s, 98s, AQo, KQo:0.5"},
+  {"hero": ["BTN"], "openers": ["HJ"], "3bet": "JJ+, AQs+, AKo, A5s-A3s, K9s:0.5", "call": "TT-55, AJs-A9s, KQs-KTs, QJs, QTs, JTs, T9s, 98s, 87s, AQo-AJo, KQo"},
+  {"hero": ["BTN"], "openers": ["CO"], "3bet": "TT+, AJs+, KQs, AQo+, A5s-A2s, K9s, 76s:0.5, 65s:0.5", "call": "99-44, ATs-A6s, KJs-KTs, QJs-QTs, JTs, J9s, T9s, 98s, 87s, 76s:0.5, 65s:0.5, AJo, KQo, KJo:0.5"},
+  {"hero": ["SB"], "openers": ["UTG"], "3bet": "JJ+, AQs+, AKo, A5s:0.5", "call": ""},
+  {"hero": ["SB"], "openers": ["HJ"], "3bet": "TT+, AJs+, KQs, AKo, AQo:0.5, A5s, A4s", "call": ""},
+  {"hero": ["SB"], "openers": ["CO"], "3bet": "99+, ATs+, KTs+, QJs, JTs, AJo+, KQo, A5s-A3s, 76s:0.5", "call": ""},
+  {"hero": ["SB"], "openers": ["BTN"], "3bet": "88+, A8s+, A5s-A3s, K9s+, Q9s+, J9s+, T9s, 98s:0.5, ATo+, KJo+, QJo:0.5", "call": ""},
+  {"hero": ["BB"], "openers": ["UTG"], "3bet": "QQ+, AKs, AKo, A5s:0.5", "call": "JJ-22, AQs-A6s, A5s:0.5, A4s-A2s, K9s+, Q9s+, J9s+, T8s+, 97s+, 86s+, 75s+, 64s+, 54s, AQo-ATo, KJo+, QJo"},
+  {"hero": ["BB"], "openers": ["HJ"], "3bet": "JJ+, AQs+, AKo, A5s, A4s:0.5", "call": "TT-22, AJs-A6s, A4s:0.5, A3s-A2s, K8s+, Q9s+, J9s+, T8s+, 97s+, 86s+, 75s+, 64s+, 54s, AQo-ATo, KTo+, QTo+, JTo"},
+  {"hero": ["BB"], "openers": ["CO"], "3bet": "TT+, AJs+, KQs, AQo+, A5s-A4s, K9s:0.5, 76s:0.5", "call": "99-22, ATs-A6s, A3s-A2s, KJs-K6s, K9s:0.5, Q8s+, J8s+, T7s+, 96s+, 85s+, 76s:0.5, 75s, 64s+, 53s+, AJo-A9o, KTo+, QTo+, JTo, T9o:0.5"},
+  {"hero": ["BB"], "openers": ["BTN"], "3bet": "99+, ATs+, KTs+, QJs, AJo+, KQo, A5s-A2s, 65s, 54s:0.5", "call": "88-22, A9s-A6s, K9s-K2s, QTs-Q5s, J7s+, T7s+, 96s+, 85s+, 74s+, 64s, 63s, 54s:0.5, 53s, 43s, ATo-A2o, KJo-K9o, Q9o+, J9o+, T8o+, 98o, 87o:0.5"},
+  {"hero": ["BB"], "openers": ["SB"], "3bet": "88+, A9s+, KTs+, QTs+, JTs, A5s-A2s, ATo+, KJo+, 76s:0.5, 65s:0.5", "call": "77-22, A8s-A6s, K9s-K2s, Q9s-Q2s, J9s-J6s, T6s+, 96s+, 85s+, 75s-74s, 76s:0.5, 64s-63s, 65s:0.5, 52s+, 42s+, A9o-A2o, KTo-K5o, Q8o+, J8o+, T8o+, 97o+, 87o, 76o:0.5"}
+ ],
+ "vs_3bet": [
+  {"hero": ["UTG", "HJ"], "4bet": "KK+, AKs, A5s:0.5", "call": "QQ-99, AKo, AQs, AJs:0.5, KQs, JTs:0.5"},
+  {"hero": ["CO"], "4bet": "QQ+, AKs, AKo:0.5, A5s:0.5, A4s:0.5", "call": "JJ-88, AKo:0.5, AQs-AJs, KQs, KJs:0.5, QJs, JTs, T9s:0.5"},
+  {"hero": ["BTN"], "4bet": "QQ+, AKs, AKo, A5s, A4s:0.5, K9s:0.25", "call": "JJ-66, AQs-A9s, KQs-KTs, QJs, QTs, JTs, T9s, 98s, 87s:0.5, AQo, AJo:0.5, KQo"},
+  {"hero": ["SB"], "4bet": "QQ+, AKs, AKo, A5s, A4s", "call": "JJ-66, AQs-A9s, KTs+, QTs+, JTs, T9s, 98s, AQo, KQo"}
+ ]
+}

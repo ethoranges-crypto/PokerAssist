@@ -3,7 +3,7 @@ name = "pokerassist"
 version = "0.1.0"
 description = "No-Limit Hold'em decision assistant: deterministic engine + LLM explanation layer"
 requires-python = ">=3.11"
-dependencies = ["eval7==0.1.11"]
+dependencies = ["eval7==0.1.11", "numpy>=1.26"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
