@@ -7,11 +7,12 @@ from engine.schema import EngineResult, HandInput, OptionEV
 _VERB = {"fold": "Fold", "check": "Check", "call": "Call", "bet": "Bet", "raise": "Raise", "allin": "Go all-in"}
 
 
-def describe_option(o: OptionEV) -> str:
+def describe_option(o: OptionEV, lower: bool = False) -> str:
+    verb = _VERB[o.action].lower() if lower else _VERB[o.action]
     if o.size_bb is None or o.action in ("fold", "check"):
-        return _VERB[o.action]
+        return verb
     pct = f" ({o.size_pct_pot:g}% pot)" if o.action == "bet" and o.size_pct_pot else ""
-    return f"{_VERB[o.action]} {o.size_bb:g} BB{pct}"
+    return f"{verb} {o.size_bb:g} BB{pct}"
 
 
 def engine_explanation(inp: HandInput, r: EngineResult) -> str:
@@ -29,7 +30,7 @@ def engine_explanation(inp: HandInput, r: EngineResult) -> str:
         parts.append(f"Calling needs {round(100 * r.required_equity)}% equity.")
     others = sorted((o for o in r.options if o.id != best.id), key=lambda o: o.ev_dollars or o.ev_bb, reverse=True)
     if inp.format == "sng" and best.ev_dollars is not None:
-        parts.append(f"ICM prize equity: {best.ev_dollars:g} for this option" + (f" vs {others[0].ev_dollars:g} to {describe_option(others[0]).lower()}." if others else "."))
+        parts.append(f"ICM prize equity: {best.ev_dollars:g} for this option" + (f" vs {others[0].ev_dollars:g} to {describe_option(others[0], lower=True)}." if others else "."))
     elif others:
-        parts.append(f"Estimated EV {best.ev_bb:g} BB vs {others[0].ev_bb:g} BB to {describe_option(others[0]).lower()}.")
+        parts.append(f"Estimated EV {best.ev_bb:.2f} BB vs {others[0].ev_bb:.2f} BB to {describe_option(others[0], lower=True)}.")
     return " ".join(parts[:4])
