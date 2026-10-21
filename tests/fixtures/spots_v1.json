@@ -1,0 +1,1481 @@
+{
+ "version": 1,
+ "notes": "Known spots with acceptable engine actions (poker-theory answers, not engine output).",
+ "spots": [
+  {
+   "id": "p01",
+   "note": "AA UTG unopened",
+   "hero": "UTG",
+   "hand": "AsAh",
+   "pot": 150,
+   "to_call": 100,
+   "in_hand": [
+    "HJ",
+    "CO",
+    "BTN",
+    "SB",
+    "BB"
+   ],
+   "players": 6,
+   "expect": [
+    "raise"
+   ]
+  },
+  {
+   "id": "p02",
+   "note": "72o UTG unopened",
+   "hero": "UTG",
+   "hand": "7c2d",
+   "pot": 150,
+   "to_call": 100,
+   "in_hand": [
+    "HJ",
+    "CO",
+    "BTN",
+    "SB",
+    "BB"
+   ],
+   "players": 6,
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "p03",
+   "note": "K2s BTN steal",
+   "hero": "BTN",
+   "hand": "Kd2d",
+   "pot": 150,
+   "to_call": 100,
+   "in_hand": [
+    "SB",
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold"
+   ],
+   "players": 6,
+   "expect": [
+    "raise"
+   ]
+  },
+  {
+   "id": "p04",
+   "note": "K2s UTG",
+   "hero": "UTG",
+   "hand": "Kd2d",
+   "pot": 150,
+   "to_call": 100,
+   "in_hand": [
+    "HJ",
+    "CO",
+    "BTN",
+    "SB",
+    "BB"
+   ],
+   "players": 6,
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "p05",
+   "note": "98s UTG full ring",
+   "hero": "UTG",
+   "hand": "9h8h",
+   "pot": 150,
+   "to_call": 100,
+   "players": 9,
+   "in_hand": [
+    "UTG1",
+    "UTG2",
+    "LJ",
+    "HJ",
+    "CO",
+    "BTN",
+    "SB",
+    "BB"
+   ],
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "p06",
+   "note": "22 CO",
+   "hero": "CO",
+   "hand": "2c2d",
+   "pot": 150,
+   "to_call": 100,
+   "in_hand": [
+    "BTN",
+    "SB",
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold"
+   ],
+   "players": 6,
+   "expect": [
+    "raise"
+   ]
+  },
+  {
+   "id": "p07",
+   "note": "QQ BB vs BTN open",
+   "hero": "BB",
+   "hand": "QsQd",
+   "pot": 400,
+   "to_call": 150,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold"
+   ],
+   "players": 6,
+   "expect": [
+    "raise"
+   ]
+  },
+  {
+   "id": "p08",
+   "note": "88 BB vs UTG open",
+   "hero": "BB",
+   "hand": "8c8d",
+   "pot": 400,
+   "to_call": 150,
+   "in_hand": [
+    "UTG"
+   ],
+   "actions": [
+    "UTG raise 250",
+    "HJ fold",
+    "CO fold",
+    "BTN fold",
+    "SB fold"
+   ],
+   "players": 6,
+   "expect": [
+    "call"
+   ]
+  },
+  {
+   "id": "p09",
+   "note": "J4o BB vs UTG open",
+   "hero": "BB",
+   "hand": "Js4d",
+   "pot": 400,
+   "to_call": 150,
+   "in_hand": [
+    "UTG"
+   ],
+   "actions": [
+    "UTG raise 250",
+    "HJ fold",
+    "CO fold",
+    "BTN fold",
+    "SB fold"
+   ],
+   "players": 6,
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "p10",
+   "note": "AKo UTG vs BTN 3-bet, full ring",
+   "hero": "UTG",
+   "hand": "AhKd",
+   "pot": 1150,
+   "to_call": 500,
+   "hero_stack": 9750,
+   "players": 9,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG raise 250",
+    "UTG1 fold",
+    "UTG2 fold",
+    "LJ fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 750",
+    "SB fold",
+    "BB fold"
+   ],
+   "expect": [
+    "call"
+   ]
+  },
+  {
+   "id": "p11",
+   "note": "AA CO vs BTN 3-bet",
+   "hero": "CO",
+   "hand": "AhAd",
+   "pot": 1150,
+   "to_call": 500,
+   "hero_stack": 9750,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO raise 250",
+    "BTN raise 750",
+    "SB fold",
+    "BB fold"
+   ],
+   "players": 6,
+   "expect": [
+    "raise",
+    "allin"
+   ]
+  },
+  {
+   "id": "p12",
+   "note": "T9s SB vs UTG open (3-bet or fold)",
+   "hero": "SB",
+   "hand": "Ts9s",
+   "pot": 400,
+   "to_call": 200,
+   "in_hand": [
+    "UTG",
+    "BB"
+   ],
+   "actions": [
+    "UTG raise 250",
+    "HJ fold",
+    "CO fold",
+    "BTN fold"
+   ],
+   "players": 6,
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "p13",
+   "note": "76s BTN vs CO open",
+   "hero": "BTN",
+   "hand": "7h6h",
+   "pot": 400,
+   "to_call": 250,
+   "in_hand": [
+    "CO",
+    "SB",
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO raise 250"
+   ],
+   "players": 6,
+   "expect": [
+    "raise",
+    "call"
+   ]
+  },
+  {
+   "id": "p14",
+   "note": "A5s BB vs SB open",
+   "hero": "BB",
+   "hand": "As5s",
+   "pot": 400,
+   "to_call": 200,
+   "in_hand": [
+    "SB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN fold",
+    "SB raise 300"
+   ],
+   "players": 6,
+   "expect": [
+    "raise"
+   ]
+  },
+  {
+   "id": "p15",
+   "note": "KQo SB unopened",
+   "hero": "SB",
+   "hand": "KhQc",
+   "pot": 150,
+   "to_call": 50,
+   "in_hand": [
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN fold"
+   ],
+   "players": 6,
+   "expect": [
+    "raise"
+   ]
+  },
+  {
+   "id": "s16",
+   "note": "AA UTG 10bb 9-handed",
+   "hero": "UTG",
+   "hand": "AsAh",
+   "pot": 300,
+   "to_call": 200,
+   "hero_stack": 2000,
+   "stacks": 2000,
+   "players": 9,
+   "in_hand": [
+    "UTG1",
+    "UTG2",
+    "LJ",
+    "HJ",
+    "CO",
+    "BTN",
+    "SB",
+    "BB"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    50,
+    30,
+    20
+   ],
+   "expect": [
+    "allin"
+   ]
+  },
+  {
+   "id": "s17",
+   "note": "72o UTG 10bb 9-handed",
+   "hero": "UTG",
+   "hand": "7c2d",
+   "pot": 300,
+   "to_call": 200,
+   "hero_stack": 2000,
+   "stacks": 2000,
+   "players": 9,
+   "in_hand": [
+    "UTG1",
+    "UTG2",
+    "LJ",
+    "HJ",
+    "CO",
+    "BTN",
+    "SB",
+    "BB"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    50,
+    30,
+    20
+   ],
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "s18",
+   "note": "K9s SB 8bb 3-handed",
+   "hero": "SB",
+   "hand": "Ks9s",
+   "pot": 300,
+   "to_call": 100,
+   "hero_stack": 1500,
+   "stacks": {
+    "BTN": 3000,
+    "BB": 1400
+   },
+   "players": 3,
+   "in_hand": [
+    "BB"
+   ],
+   "actions": [
+    "BTN fold"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    50,
+    30,
+    20
+   ],
+   "expect": [
+    "allin"
+   ]
+  },
+  {
+   "id": "s19",
+   "note": "22 BTN 6bb 6-handed",
+   "hero": "BTN",
+   "hand": "2c2d",
+   "pot": 300,
+   "to_call": 200,
+   "hero_stack": 1200,
+   "stacks": 1200,
+   "players": 6,
+   "in_hand": [
+    "SB",
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    50,
+    30,
+    20
+   ],
+   "expect": [
+    "allin"
+   ]
+  },
+  {
+   "id": "s20",
+   "note": "Q4o UTG1 12bb 8-handed",
+   "hero": "UTG1",
+   "hand": "Qh4c",
+   "pot": 300,
+   "to_call": 200,
+   "hero_stack": 2400,
+   "stacks": 2400,
+   "players": 8,
+   "in_hand": [
+    "LJ",
+    "HJ",
+    "CO",
+    "BTN",
+    "SB",
+    "BB"
+   ],
+   "actions": [
+    "UTG fold"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    50,
+    30,
+    20
+   ],
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "s21",
+   "note": "A9o BB vs SB shove heads-up 10bb",
+   "hero": "BB",
+   "hand": "Ad9c",
+   "pot": 2200,
+   "to_call": 1800,
+   "hero_stack": 1800,
+   "stacks": {
+    "SB": 0
+   },
+   "players": 2,
+   "in_hand": [
+    "SB"
+   ],
+   "actions": [
+    "SB allin 2000"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    65,
+    35
+   ],
+   "expect": [
+    "call"
+   ]
+  },
+  {
+   "id": "s22",
+   "note": "72o BB vs BTN shove 12bb",
+   "hero": "BB",
+   "hand": "7c2d",
+   "pot": 2700,
+   "to_call": 2200,
+   "hero_stack": 2200,
+   "stacks": {
+    "UTG": 2400,
+    "HJ": 2400,
+    "CO": 2400,
+    "BTN": 0,
+    "SB": 2300
+   },
+   "players": 6,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN allin 2400",
+    "SB fold"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    50,
+    30,
+    20
+   ],
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "s23",
+   "note": "Bubble: medium stack BB vs chip leader BTN shove, ATo",
+   "hero": "BB",
+   "hand": "AhTc",
+   "pot": 7300,
+   "to_call": 2800,
+   "hero_stack": 2800,
+   "stacks": {
+    "CO": 2500,
+    "BTN": 0,
+    "SB": 1400
+   },
+   "players": 4,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "CO fold",
+    "BTN allin 7000",
+    "SB fold"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    50,
+    30,
+    20
+   ],
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "s24",
+   "note": "3bb SB heads-up any two",
+   "hero": "SB",
+   "hand": "9h4c",
+   "pot": 300,
+   "to_call": 100,
+   "hero_stack": 500,
+   "stacks": {
+    "BB": 7300
+   },
+   "players": 2,
+   "in_hand": [
+    "BB"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    65,
+    35
+   ],
+   "expect": [
+    "allin"
+   ]
+  },
+  {
+   "id": "s25",
+   "note": "Q7o SB 12bb heads-up",
+   "hero": "SB",
+   "hand": "Qd7c",
+   "pot": 300,
+   "to_call": 100,
+   "hero_stack": 2300,
+   "stacks": {
+    "BB": 5000
+   },
+   "players": 2,
+   "in_hand": [
+    "BB"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    65,
+    35
+   ],
+   "expect": [
+    "allin"
+   ]
+  },
+  {
+   "id": "f26",
+   "note": "Set on K72r IP, checked to",
+   "hero": "BTN",
+   "hand": "7s7d",
+   "board": "Kh7c2d",
+   "pot": 550,
+   "in_hand": [
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check"
+   ],
+   "hero_stack": 9750,
+   "stacks": 9750,
+   "players": 6,
+   "expect": [
+    "bet"
+   ]
+  },
+  {
+   "id": "f27",
+   "note": "Nut flush river IP, checked to",
+   "hero": "BTN",
+   "hand": "AhJh",
+   "board": "Kh7h2d4c9h",
+   "pot": 550,
+   "in_hand": [
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN check",
+    "turn: BB check",
+    "turn: BTN check",
+    "river: BB check"
+   ],
+   "hero_stack": 9750,
+   "stacks": 9750,
+   "players": 6,
+   "expect": [
+    "bet",
+    "allin"
+   ]
+  },
+  {
+   "id": "f28",
+   "note": "River air vs bet",
+   "hero": "BB",
+   "hand": "6h5h",
+   "board": "Kh7c2dQsAc",
+   "pot": 1810,
+   "to_call": 900,
+   "hero_stack": 9570,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180",
+    "flop: BB call",
+    "turn: BB check",
+    "turn: BTN check",
+    "river: BB check",
+    "river: BTN bet 900"
+   ],
+   "players": 6,
+   "stacks": 9570,
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "f29",
+   "note": "River nut straight vs bet",
+   "hero": "BB",
+   "hand": "6s5s",
+   "board": "Kh4c3d2s9c",
+   "pot": 3210,
+   "to_call": 1300,
+   "hero_stack": 9070,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180",
+    "flop: BB call",
+    "turn: BB check",
+    "turn: BTN bet 500",
+    "turn: BB call",
+    "river: BB check",
+    "river: BTN bet 1300"
+   ],
+   "players": 6,
+   "stacks": 9070,
+   "expect": [
+    "raise",
+    "allin"
+   ]
+  },
+  {
+   "id": "f30",
+   "note": "Nut flush draw + overcards vs 1/3 pot c-bet",
+   "hero": "BB",
+   "hand": "AsQs",
+   "board": "8s5s2d",
+   "pot": 730,
+   "to_call": 180,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180"
+   ],
+   "hero_stack": 9750,
+   "stacks": 9750,
+   "players": 6,
+   "expect": [
+    "call",
+    "raise",
+    "allin"
+   ]
+  },
+  {
+   "id": "f31",
+   "note": "Gutshot, no overcards, vs pot bet",
+   "hero": "BB",
+   "hand": "5c4d",
+   "board": "Kh8s7c",
+   "pot": 1100,
+   "to_call": 550,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 550"
+   ],
+   "hero_stack": 9750,
+   "stacks": 9750,
+   "players": 6,
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "f32",
+   "note": "TPTK vs half-pot c-bet",
+   "hero": "BB",
+   "hand": "AhKd",
+   "board": "Kh7c2d",
+   "pot": 825,
+   "to_call": 275,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 275"
+   ],
+   "hero_stack": 9750,
+   "stacks": 9750,
+   "players": 6,
+   "expect": [
+    "call",
+    "raise"
+   ]
+  },
+  {
+   "id": "f33",
+   "note": "Overpair IP checked to",
+   "hero": "BTN",
+   "hand": "KcKd",
+   "board": "9h5c2s",
+   "pot": 550,
+   "in_hand": [
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check"
+   ],
+   "hero_stack": 9750,
+   "stacks": 9750,
+   "players": 6,
+   "expect": [
+    "bet"
+   ]
+  },
+  {
+   "id": "f34",
+   "note": "Bottom pair vs river overbet",
+   "hero": "BB",
+   "hand": "3c2c",
+   "board": "Kh7d2hJs9c",
+   "pot": 1650,
+   "to_call": 1100,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN check",
+    "turn: BB check",
+    "turn: BTN check",
+    "river: BB check",
+    "river: BTN bet 1100"
+   ],
+   "hero_stack": 9750,
+   "stacks": 9750,
+   "players": 6,
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "f35",
+   "note": "Two pair vs small turn bet",
+   "hero": "BB",
+   "hand": "Kc7s",
+   "board": "Kh7c2d4s",
+   "pot": 1210,
+   "to_call": 300,
+   "hero_stack": 9570,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180",
+    "flop: BB call",
+    "turn: BB check",
+    "turn: BTN bet 300"
+   ],
+   "players": 6,
+   "stacks": 9570,
+   "expect": [
+    "call",
+    "raise"
+   ]
+  },
+  {
+   "id": "f36",
+   "note": "Second pair vs aggressive 1/3-pot river bet",
+   "hero": "BB",
+   "hand": "7d6d",
+   "board": "Kh7c2d4s9h",
+   "pot": 730,
+   "to_call": 180,
+   "in_hand": [
+    "BTN"
+   ],
+   "types": {
+    "BTN": "aggressive"
+   },
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN check",
+    "turn: BB check",
+    "turn: BTN check",
+    "river: BB check",
+    "river: BTN bet 180"
+   ],
+   "hero_stack": 9750,
+   "stacks": 9750,
+   "players": 6,
+   "expect": [
+    "call"
+   ]
+  },
+  {
+   "id": "f37",
+   "note": "Multiway set, checked to",
+   "hero": "CO",
+   "hand": "9s9d",
+   "board": "9h5c2s",
+   "pot": 800,
+   "in_hand": [
+    "BTN",
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO raise 250",
+    "BTN call",
+    "SB fold",
+    "BB call",
+    "flop: BB check"
+   ],
+   "hero_stack": 9750,
+   "stacks": 9750,
+   "players": 6,
+   "expect": [
+    "bet"
+   ]
+  },
+  {
+   "id": "f38",
+   "note": "Top pair weak kicker vs tight river shove",
+   "hero": "BB",
+   "hand": "Kd9c",
+   "board": "Kh7c2d4s8h",
+   "pot": 10980,
+   "to_call": 9070,
+   "hero_stack": 9070,
+   "in_hand": [
+    "BTN"
+   ],
+   "types": {
+    "BTN": "tight"
+   },
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180",
+    "flop: BB call",
+    "turn: BB check",
+    "turn: BTN bet 500",
+    "turn: BB call",
+    "river: BB check",
+    "river: BTN allin 9070"
+   ],
+   "players": 6,
+   "stacks": {
+    "UTG": 10000,
+    "HJ": 10000,
+    "CO": 10000,
+    "BTN": 0,
+    "SB": 10000
+   },
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "f39",
+   "note": "Top pair + nut flush draw vs short shove",
+   "hero": "BB",
+   "hand": "AhTc",
+   "board": "Td6h3h",
+   "pot": 2050,
+   "to_call": 1500,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN allin 1500"
+   ],
+   "players": 6,
+   "hero_stack": 9750,
+   "stacks": {
+    "UTG": 10000,
+    "HJ": 10000,
+    "CO": 10000,
+    "BTN": 0,
+    "SB": 10000
+   },
+   "expect": [
+    "call"
+   ]
+  },
+  {
+   "id": "f40",
+   "note": "Underpair on AKQ vs tight pot c-bet",
+   "hero": "BB",
+   "hand": "6c6d",
+   "board": "AhKdQs",
+   "pot": 1100,
+   "to_call": 550,
+   "in_hand": [
+    "BTN"
+   ],
+   "types": {
+    "BTN": "tight"
+   },
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 550"
+   ],
+   "hero_stack": 9750,
+   "stacks": 9750,
+   "players": 6,
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "f41",
+   "note": "TPTK bluff-catch vs aggressive pot river bet",
+   "hero": "BB",
+   "hand": "AhKd",
+   "board": "Kh7c2d4s9c",
+   "pot": 3820,
+   "to_call": 1910,
+   "hero_stack": 9070,
+   "in_hand": [
+    "BTN"
+   ],
+   "types": {
+    "BTN": "aggressive"
+   },
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180",
+    "flop: BB call",
+    "turn: BB check",
+    "turn: BTN bet 500",
+    "turn: BB call",
+    "river: BB check",
+    "river: BTN bet 1910"
+   ],
+   "players": 6,
+   "stacks": 9070,
+   "expect": [
+    "call"
+   ]
+  },
+  {
+   "id": "f42",
+   "note": "Turn nut straight vs bet",
+   "hero": "BB",
+   "hand": "9s8s",
+   "board": "7h6c2d5c",
+   "pot": 1410,
+   "to_call": 500,
+   "hero_stack": 9570,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180",
+    "flop: BB call",
+    "turn: BB check",
+    "turn: BTN bet 500"
+   ],
+   "players": 6,
+   "stacks": 9570,
+   "expect": [
+    "call",
+    "raise",
+    "allin"
+   ]
+  },
+  {
+   "id": "f43",
+   "note": "River thin value, top pair good kicker IP",
+   "hero": "BTN",
+   "hand": "AhQd",
+   "board": "Ac8d4s2h6c",
+   "pot": 910,
+   "hero_stack": 9570,
+   "in_hand": [
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180",
+    "flop: BB call",
+    "turn: BB check",
+    "turn: BTN check",
+    "river: BB check"
+   ],
+   "players": 6,
+   "stacks": 9570,
+   "expect": [
+    "bet"
+   ]
+  },
+  {
+   "id": "f45",
+   "note": "Set facing flop check-raise",
+   "hero": "BTN",
+   "hand": "KsKd",
+   "board": "Kh7c2d",
+   "pot": 1330,
+   "to_call": 420,
+   "hero_stack": 9570,
+   "in_hand": [
+    "BB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180",
+    "flop: BB raise 600"
+   ],
+   "players": 6,
+   "stacks": 9150,
+   "expect": [
+    "call",
+    "raise",
+    "allin"
+   ]
+  },
+  {
+   "id": "f46",
+   "note": "Missed draw vs river bet",
+   "hero": "BB",
+   "hand": "JhTh",
+   "board": "9h8c2h3s4d",
+   "pot": 3210,
+   "to_call": 1300,
+   "hero_stack": 9070,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180",
+    "flop: BB call",
+    "turn: BB check",
+    "turn: BTN bet 500",
+    "turn: BB call",
+    "river: BB check",
+    "river: BTN bet 1300"
+   ],
+   "players": 6,
+   "stacks": 9070,
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "f47",
+   "note": "BB option in limped pot with junk",
+   "hero": "BB",
+   "hand": "7c2d",
+   "pot": 200,
+   "to_call": 0,
+   "in_hand": [
+    "SB"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN fold",
+    "SB call"
+   ],
+   "players": 6,
+   "expect": [
+    "check"
+   ]
+  },
+  {
+   "id": "f49",
+   "note": "Turn flush draw vs pot bet (no straight outs)",
+   "hero": "BB",
+   "hand": "9h8h",
+   "board": "Kh7h2c4s",
+   "pot": 1820,
+   "to_call": 910,
+   "hero_stack": 9570,
+   "in_hand": [
+    "BTN"
+   ],
+   "actions": [
+    "UTG fold",
+    "HJ fold",
+    "CO fold",
+    "BTN raise 250",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN bet 180",
+    "flop: BB call",
+    "turn: BB check",
+    "turn: BTN bet 910"
+   ],
+   "players": 6,
+   "stacks": 9570,
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "s51",
+   "note": "SnG top set vs flop shove",
+   "hero": "BB",
+   "hand": "7s7d",
+   "board": "7hKc2d",
+   "pot": 3700,
+   "to_call": 2400,
+   "hero_stack": 2400,
+   "in_hand": [
+    "BTN"
+   ],
+   "stacks": {
+    "HJ": 3000,
+    "CO": 3000,
+    "BTN": 0,
+    "SB": 2900
+   },
+   "players": 5,
+   "actions": [
+    "HJ fold",
+    "CO fold",
+    "BTN raise 600",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN allin 2400"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    50,
+    30,
+    20
+   ],
+   "expect": [
+    "call"
+   ]
+  },
+  {
+   "id": "s52",
+   "note": "SnG bubble bottom pair vs chip leader shove",
+   "hero": "BB",
+   "hand": "3c2c",
+   "board": "Kh7d2s",
+   "pot": 6600,
+   "to_call": 2000,
+   "hero_stack": 2000,
+   "in_hand": [
+    "BTN"
+   ],
+   "stacks": {
+    "CO": 1000,
+    "BTN": 0,
+    "SB": 2400
+   },
+   "players": 4,
+   "actions": [
+    "CO fold",
+    "BTN raise 500",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN allin 5500"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    50,
+    30,
+    20
+   ],
+   "expect": [
+    "fold"
+   ]
+  },
+  {
+   "id": "s53",
+   "note": "SnG turn nut flush, checked to",
+   "hero": "BTN",
+   "hand": "AhJh",
+   "board": "Kh7h2d4h",
+   "pot": 1100,
+   "hero_stack": 2500,
+   "in_hand": [
+    "BB"
+   ],
+   "stacks": {
+    "HJ": 3000,
+    "CO": 3000,
+    "SB": 2900,
+    "BB": 2500
+   },
+   "players": 5,
+   "actions": [
+    "HJ fold",
+    "CO fold",
+    "BTN raise 500",
+    "SB fold",
+    "BB call",
+    "flop: BB check",
+    "flop: BTN check",
+    "turn: BB check"
+   ],
+   "format": "sng",
+   "blinds": [
+    100,
+    200
+   ],
+   "payouts": [
+    50,
+    30,
+    20
+   ],
+   "expect": [
+    "bet",
+    "allin"
+   ]
+  }
+ ]
+}

@@ -16,7 +16,7 @@ import numpy as np
 from .cards import parse_cards
 from .data import pushfold_chart
 from .positions import blind_posted, position_index, positions
-from .ranges import CLASS_INDEX, combo, hand_class
+from .ranges import CLASS_INDEX, CLASSES, combo, hand_class
 
 TOTAL_COMBOS = 1225  # combos of two cards from the 50 unseen
 # Prior probability of being dealt each class (grid order): combos / 1326.
@@ -195,3 +195,79 @@ def pushfold_decision(
         ante_bb=ante,
         chart=f"nash_v{chart['version']} {n_players}-handed ante={ante} {label}",
     )
+
+
+def pushfold_range(
+    n_players: int,
+    position: str,
+    stack_bb: float,
+    ante_bb: float = 0.0,
+    pusher: str | None = None,
+    chart: dict | None = None,
+) -> dict:
+    """Nash shove range for ``position`` (or its calling range vs ``pusher``) as a Range."""
+    from .ranges import class_combos
+
+    chart = chart or pushfold_chart()
+    ante = min(chart["antes"], key=lambda a: abs(a - ante_bb))
+    table = chart["charts"][str(ante)][str(n_players)]
+    position = position.upper()
+    grid = table["push"][position] if pusher is None else table["call"][pusher.upper()][position]
+    stack = min(max(stack_bb, chart["stack_grid"][0]), chart["max_stack"])
+    out = {}
+    for i, cls in enumerate(CLASSES):
+        if grid[i // 13][i % 13] >= stack:
+            for c in class_combos(cls):
+                out[c] = 1.0
+    return out
+
+
+# --- ICM push/fold equilibrium for one spot ----------------------------------
+
+
+@dataclass(frozen=True)
+class ICMCaller:
+    position: str
+    required_equity: float  # equity this villain needs to call under ICM
+    win: float  # hero's prize equity if hero beats this caller
+    lose: float  # hero's prize equity if this caller wins
+
+
+def solve_icm_pushfold(
+    m: PreflopMatrix,
+    callers: list[ICMCaller],
+    fold_value: float,
+    steal_value: float,
+    iterations: int = 400,
+) -> tuple[np.ndarray, dict[str, np.ndarray]]:
+    """Hero shoves into ``callers`` (in order); payoffs are prize equities.
+
+    Each caller calls a class iff its equity vs hero's shove range meets their
+    ICM required equity; hero shoves a class iff its $EV beats folding.
+    Fictitious play; returns (push frequency, {caller: call frequency}).
+    """
+    wn = m.weighted
+    push = np.ones(169)
+    calls = {c.position: np.full(169, 0.5) for c in callers}
+    for t in range(1, iterations + 1):
+        step = 1 / (t + 1)
+        ev = np.zeros(169)
+        reach = np.ones(169)
+        for c in callers:
+            f = calls[c.position]
+            combos = m.count @ f
+            p_call = combos / TOTAL_COMBOS
+            with np.errstate(invalid="ignore", divide="ignore"):
+                eq = np.where(combos > 0, (wn @ f) / combos, 0.0)
+            ev += reach * p_call * (eq * c.win + (1 - eq) * c.lose)
+            reach = reach * (1 - p_call)
+        ev += reach * steal_value
+        br_push = _best_response(ev, fold_value)
+        vs = m.count @ push
+        with np.errstate(invalid="ignore", divide="ignore"):
+            eq_vs_push = np.where(vs > 0, (wn @ push) / vs, 0.0)
+        for c in callers:
+            br = _best_response(eq_vs_push, c.required_equity)
+            calls[c.position] += (br - calls[c.position]) * step
+        push += (br_push - push) * step
+    return push, calls

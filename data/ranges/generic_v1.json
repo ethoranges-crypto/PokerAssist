@@ -1,0 +1,14 @@
+{
+ "version": 1,
+ "id": "generic_v1",
+ "notes": "Fallback ranges for spots the position charts do not cover.",
+ "limp": "TT+:0.15, AQs+:0.15, AKo:0.15, 22-99, A2s-AJs, K2s-KJs, Q5s+, J7s+, T7s+, 97s+, 86s+, 75s+, 64s+, 54s, A2o-ATo, K8o-KJo, Q9o+, J9o+, T9o, 98o",
+ "bb_check": "random",
+ "four_bet": "QQ+, AKs, AKo:0.6, A5s:0.4",
+ "call_four_bet": "QQ+, AKs, AKo:0.5, JJ:0.5",
+ "five_bet_allin": "KK+, AKs:0.5",
+ "call_shove_deep": "QQ+, AKs, AKo:0.75, JJ:0.5",
+ "cold_call_open": "22-JJ, ATs-AQs, KTs+, QTs+, J9s+, T9s, 98s, 87s, 76s, AQo, KQo:0.5",
+ "unknown_preflop": "22+, A2s+, K5s+, Q7s+, J8s+, T8s+, 97s+, 87s, 76s, 65s, A7o+, KTo+, QTo+, JTo",
+ "type_widths": {"tight": 0.7, "loose": 1.4, "passive": 1.0, "aggressive": 1.1, "unknown": 1.0}
+}

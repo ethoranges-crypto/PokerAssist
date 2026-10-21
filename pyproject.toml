@@ -10,4 +10,5 @@ dev = ["pytest>=8"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = [".", "tests"]
 markers = ["slow: long-running accuracy checks"]

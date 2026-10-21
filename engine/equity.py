@@ -21,6 +21,7 @@ _EVAL_CARDS = {c: eval7.Card(c) for c in DECK}
 DEFAULT_ITERATIONS = 50_000
 EXACT_LIMIT = 150_000
 _MAX_REJECTIONS = 1_000
+_VILLAIN_RETRIES = 50  # redraws per villain before rejecting the whole sample
 
 
 class EquityError(ValueError):
@@ -116,8 +117,11 @@ def _monte_carlo(
         used: set = set()
         hands = []
         for cs, cum, tot in zip(combos, cums, totals):
-            a, b = cs[bisect_right(cum, rand() * tot)]
-            if a in used or b in used:
+            for _ in range(_VILLAIN_RETRIES):
+                a, b = cs[bisect_right(cum, rand() * tot)]
+                if a not in used and b not in used:
+                    break
+            else:
                 break
             used.add(a)
             used.add(b)

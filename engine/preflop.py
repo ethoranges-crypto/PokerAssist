@@ -114,3 +114,28 @@ def cash_preflop_decision(
         chart_position=pos,
         approximate=n_players not in (6, 9),
     )
+
+
+def cash_range(n_players: int, kind: str, position: str, opener: str | None = None) -> Range:
+    """A chart range for ``position``.
+
+    kind: ``rfi`` (open), ``3bet`` / ``call_open`` (vs ``opener``'s open),
+    ``4bet`` / ``call_3bet`` (``position`` opened and faces a 3-bet).
+    """
+    chart = _chart_for(n_players)
+    seats = chart["seats"]
+    pos = _map_position(n_players, position.upper(), seats)
+    if kind == "rfi":
+        if pos == "BB":
+            raise ChartError("The BB has no open-raising range")
+        return _range(chart["rfi"][pos])
+    if kind in ("3bet", "call_open"):
+        if opener is None:
+            raise ChartError(f"{kind} needs the opener's position")
+        opp = _map_position(n_players, opener.upper(), seats)
+        e = _find(chart["vs_open"], pos, "openers", opp)
+        return _range(e["3bet" if kind == "3bet" else "call"])
+    if kind in ("4bet", "call_3bet"):
+        e = _find(chart["vs_3bet"], pos)
+        return _range(e["4bet" if kind == "4bet" else "call"])
+    raise ChartError(f"Unknown range kind: {kind!r}")
