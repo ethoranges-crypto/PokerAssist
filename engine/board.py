@@ -5,12 +5,11 @@ from __future__ import annotations
 from collections import Counter
 from functools import lru_cache
 
-import eval7
-
+from . import evaluator
 from .cards import RANKS
 from .ranges import CLASS_INDEX, Combo, Range, combo, hand_class
 
-_E = {r + s: eval7.Card(r + s) for r in RANKS for s in "shdc"}
+_E = {r + s: evaluator.card(r + s) for r in RANKS for s in "shdc"}
 _VALUE = {r: 14 - i for i, r in enumerate(RANKS)}  # A=14 ... 2=2
 
 
@@ -79,8 +78,8 @@ def describe_hand(hole: list[str], board: list[str]) -> str:
     if not board:
         cls = hand_class(combo(*hole))
         return {2: "pocket pair"}.get(len(cls), "suited" if cls.endswith("s") else "offsuit") + f" ({cls})"
-    score = eval7.evaluate([_E[c] for c in hole + board])
-    kind = eval7.handtype(score)
+    score = evaluator.evaluate([_E[c] for c in hole + board])
+    kind = evaluator.handtype(score)
     hv = sorted(_values(hole), reverse=True)
     bv = sorted(_values(board), reverse=True)
     board_counts = Counter(bv)
@@ -131,7 +130,7 @@ def range_strengths(r: Range, board: list[str]) -> dict[Combo, float]:
         return {}
     if board:
         be = [_E[c] for c in board]
-        score = {c: eval7.evaluate([_E[c[0]], _E[c[1]]] + be) for c in r}
+        score = {c: evaluator.evaluate([_E[c[0]], _E[c[1]]] + be) for c in r}
     else:
         score = {c: preflop_strength(c) for c in r}
     order = sorted(r, key=score.get)

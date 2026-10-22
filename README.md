@@ -13,6 +13,17 @@ explains options the engine produces. See the build spec for full scope.
 | 3. Postflop + LLM + UI | Board texture, sizing, villain ranges, EV per action, Claude layer, FastAPI, Next.js UI, history | **Done** |
 | 4. Solver (optional) | Heads-up postflop solver wrapper | — |
 
+## Requirements
+
+- **Python 3.13** (the version this project is developed and tested on)
+- Node.js 22 for the web UI
+
+No C compiler is needed: hand evaluation is pure Python by default. If the
+optional [`eval7`](https://github.com/JulianAndrews/pyeval7) C extension is
+installed (`pip install eval7==0.1.11`, needs a C++ compiler on Windows), it is
+used automatically; set `POKERASSIST_EVALUATOR=python` to force the pure-Python
+evaluator. Both give identical results.
+
 ## Running it
 
 ```bash
@@ -30,6 +41,7 @@ Tests: `pytest` (engine, API, LLM layer with fakes) and `cd web && npx playwrigh
 ```
 engine/      pure functions, no I/O, no LLM calls
   cards.py   card parsing, duplicate/board-size validation, street inference
+  evaluator.py  7-card hand evaluator: pure-Python tables, eval7 if installed
   ranges.py  range notation (AA, ATs+, TT-77, AKs:0.5, random…) and grid
   equity.py  hero equity vs one or more ranges (exact when small, else MC)
   odds.py    required equity, pot-odds ratio, SPR, effective stack, call EV
@@ -75,9 +87,15 @@ equity("AsAh", ["random", "random"], seed=1).equity      # ~0.735 (Monte Carlo)
 `tests/fixtures/equity_reference.json` holds 21 spots (preflop, flop, turn,
 river, multiway) whose equities were computed by full enumeration with
 [`treys`](https://github.com/ihendley/treys), an evaluator independent of the
-`eval7` one the engine uses. The engine must match each within ±1% and run in
+engine's own. The engine must match each within ±1% and run in
 under 1 s (default 50k Monte Carlo iterations; exact enumeration heads-up when
 it is cheaper, which covers turn and river).
+
+The pure-Python evaluator (`engine/evaluator.py`) looks up non-flush hands by the
+product of rank primes in a table built at import (~0.7 s) and flushes by a
+13-bit rank mask: about 0.6 µs per 7-card hand, close to eval7's 0.5 µs through
+Python. `tests/test_evaluator.py` checks it ranks 12,000 random 5/6/7-card
+hands exactly like treys.
 
 ## Preflop and SnG
 

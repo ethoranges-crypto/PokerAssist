@@ -12,12 +12,11 @@ from dataclasses import dataclass
 from itertools import accumulate, combinations
 from math import comb
 
-import eval7
-
+from . import evaluator
 from .cards import DECK, check_no_duplicates, parse_cards, validate_hand_and_board
 from .ranges import Range, combo, parse_range, remove_dead
 
-_EVAL_CARDS = {c: eval7.Card(c) for c in DECK}
+_EVAL_CARDS = {c: evaluator.card(c) for c in DECK}
 DEFAULT_ITERATIONS = 50_000
 EXACT_LIMIT = 150_000
 _MAX_REJECTIONS = 1_000
@@ -79,8 +78,8 @@ def _exact_heads_up(hero: list[str], board: list[str], r: Range, need: int) -> E
         rest = [_EVAL_CARDS[c] for c in deck if c != a and c != b]
         for run in combinations(rest, need):
             full = board_e + list(run)
-            h = eval7.evaluate(hero_e + full)
-            v = eval7.evaluate(vill_e + full)
+            h = evaluator.evaluate(hero_e + full)
+            v = evaluator.evaluate(vill_e + full)
             if h > v:
                 win += w
             elif h == v:
@@ -109,7 +108,7 @@ def _monte_carlo(
     hero_e = [_EVAL_CARDS[c] for c in hero]
     board_e = [_EVAL_CARDS[c] for c in board]
     extra = min(need + 2 * len(ranges), len(deck))
-    evaluate, rand, sample = eval7.evaluate, rng.random, rng.sample
+    evaluate, rand, sample = evaluator.evaluate, rng.random, rng.sample
 
     win = tie = share = 0.0
     done = rejections = 0
